@@ -32,6 +32,11 @@ char* decToHex(int dec) {
 }
 
 
+int hexToDec(const char *hex) {
+    return (int)strtol(hex, NULL, 16);
+}
+
+
 
 
 int main() {
@@ -65,6 +70,13 @@ int main() {
     		printf("Decimal: %d\n", decimalNumber);
     		printf("Hexadecimal: %s\n", hexadecimal);
     		free(hexadecimal);
+        case 7:
+            char hexadecimalNumber[20];
+            printf("Enter a hexadecimal number (without '0x' prefix): ");
+            scanf("%s", hexadecimalNumber);
+            int decimal = hexToDec(hexadecimalNumber);
+            printf("Hexadecimal: %s\n", hexadecimalNumber);
+            printf("Decimal: %d\n", decimal);
     	default:
     		printf("Invalid number!!!");
     		
