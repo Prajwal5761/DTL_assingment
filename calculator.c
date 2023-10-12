@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <math.h>
+#include<stdlib.h>
 
 int add(int x, int y) {
     return x + y;
@@ -24,6 +25,13 @@ int divide(int x, int y) {
 int exponent(int x, int y) {
     return (int)pow(x, y);  // This line adds the exponent operator (^)
 }
+char* decToHex(int dec) {
+    char *hex = (char *)malloc(20 * sizeof(char));
+    sprintf(hex, "%X", dec);
+    return hex;
+}
+
+
 
 
 int main() {
@@ -49,6 +57,14 @@ int main() {
     	case 5:
     		printf("%d",(exponent(x,y)));
     		break;
+        case 6:
+            int decimalNumber;
+    		printf("Enter a decimal number: ");
+    		scanf("%d", &decimalNumber);
+    		char *hexadecimal = decToHex(decimalNumber);
+    		printf("Decimal: %d\n", decimalNumber);
+    		printf("Hexadecimal: %s\n", hexadecimal);
+    		free(hexadecimal);
     	default:
     		printf("Invalid number!!!");
     		
