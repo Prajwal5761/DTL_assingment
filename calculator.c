@@ -21,6 +21,10 @@ int divide(int x, int y) {
     return x / y;
 }
 
+int exponent(int x, int y) {
+    return (int)pow(x, y);  // This line adds the exponent operator (^)
+}
+
 
 int main() {
     int choice,x,y;
@@ -42,7 +46,9 @@ int main() {
     	case 4:
     		printf("%d",(divide(x,y)));
     		break;
-    	
+    	case 5:
+    		printf("%d",(exponent(x,y)));
+    		break;
     	default:
     		printf("Invalid number!!!");
     		
