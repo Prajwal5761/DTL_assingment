@@ -36,12 +36,27 @@ int hexToDec(const char *hex) {
     return (int)strtol(hex, NULL, 16);
 }
 
+void decToOctal(int decimalNumber) {
+    int octalNumber = 0, remainder, i = 1;
+
+    while (decimalNumber != 0) {
+        remainder = decimalNumber % 8;
+        octalNumber += remainder * i;
+        decimalNumber /= 8;
+        i *= 10;
+    }
+
+    printf("Octal: %d\n", octalNumber);
+}
+
+
+
 
 
 
 int main() {
     int choice,x,y;
-    printf("1 - Addition \n  2 - Subtraction \n 3 - Multiplication \n 4 -Division \n 5 - Exponent\n");
+    printf("1 - Addition \n  2 - Subtraction \n 3 - Multiplication \n 4 -Division \n 5 - Exponent\n 6- decimal_to_hexadecimal\n 7-hexadecimal_to_decimal\n 8- decimal_to_octal\n " );
     printf("Enter the your choice:");
     scanf("%d",&choice);
     printf("Enter the two numbers:");
@@ -77,6 +92,12 @@ int main() {
             int decimal = hexToDec(hexadecimalNumber);
             printf("Hexadecimal: %s\n", hexadecimalNumber);
             printf("Decimal: %d\n", decimal);
+        case 8:
+            int decimalNumber;
+            printf("Enter a decimal number: ");
+            scanf("%d", &decimalNumber);
+            decToOctal(decimalNumber);
+        
     	default:
     		printf("Invalid number!!!");
     		
